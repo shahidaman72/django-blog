@@ -1,0 +1,103 @@
+{% load staticfiles %}
+<! DOCTYPE html>
+<html>
+<head>
+      {% include 'first_app\topnav.html' %}
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+      html {
+        box-sizing: border-box;
+      }
+
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+      p{overflow: hidden;}
+
+      .column {
+        float: left;
+        width: 33.3%;
+        margin-bottom: 16px;
+        padding: 0 8px;
+      }
+
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+
+          display: block;
+        }
+      }
+
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  background-color:  white;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .container::after, .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      .title {
+        color: grey;
+      }
+
+    #h{
+      text-decoration: none;
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      #h:hover {
+        background-color: #555;
+      }
+      </style>
+
+<title>
+homepage</title>
+
+</head>
+</br></br></br>
+
+<body>
+
+
+  <br>
+ {% for i in blogs.all %}
+  <div class="row">
+    <div class="column">
+      <div class="card">
+      <img src="{{i.image.url}}" alt="Jane" style="width:100%" style= "height:50%">
+        <div class="container">
+          <h3> {{i.title}}</h3>
+          <p class="title">Pub. By {{i.hunter}} </br> ON {{i.pub_date}}</p>
+          <p id="hii">{{i.summary}}</p>
+          <a id="h" href="blog/{{ i.id }}">Read More...</a>
+        </div>
+      </div>
+    </div>
+
+
+{%endfor%}
+  </div>
+
+<div class="footer">
+    {% include 'first_app\footer.html' %}
+</div>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+{% load staticfiles %}
+<! DOCTYPE html>
+<html>
+<head>
+<title>
+signup</title>
+
+  {% include 'first_app\topnav.html' %}
+
+  <style>
+
+  h1{font-family: system-ui;
+  color: #8c7ae6}
+  #ss{
+border-radius:50px;
+  }
+    label{
+font-family: Arial, Helvetica, sans-serif;
+    }
+
+    input[type=checkbox]{  width:4%;
+      height: 4%;
+    }
+    button{
+      height: 8%;
+      width: 18%;
+      background-color:black;
+      color: white;
+      border-radius: 20px;
+    }
+  input {
+    width:30%;
+    height: 2%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  </style>
+</head>
+</br></br></br></br>
+
+<body>
+  <div  id="a">
+
+<img src=" https://www.searchpng.com/wp-content/uploads/2019/07/User-Profule-Icon.jpg"height=100px width=100px id="ss">
+<h1 id="h1">
+  Sign Up
+</h1>
+<p id="p2">{{error}}</p>
+<p id="p3">{{hey}}</p>
+<div class="container" id="1" >
+  <form method="POST" action="{% url 'signup'%}" >
+    {%csrf_token%}
+    <label for="Username"><b>Username</b></label><br>
+    <input type="text" placeholder="  Enter username" name="username" required>
+
+<br>
+<label for="Email"><b>Email</b></label><br>
+<input type="email" placeholder="  Enter email" name="email" required>
+
+<br>
+    <label for="psw1"><b>Password</b></label><br>
+    <input type="PASSWORD" placeholder="  Enter Password" name="psw1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+    <br>
+        <label for="psw2"><b>verify Password</b></label><br>
+        <input type="PASSWORD" placeholder="  verify Password" name="psw2" required>
+<br>
+    <button class"btn btn_primary"type="submit">signup!</button>
+<br>
+<p id="p1">{{hey1}}</p>
+<br>
+</form>
+</div>
+</div>
+<br><br>
+<div class="footer">
+    {% include 'first_app\footer.html' %}
+</div>
+</body>
+</html>

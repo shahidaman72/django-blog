@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<html>
+<head>
+  <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="{% static "css/index.css"%}"/>
+  <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text&display=swap" rel="stylesheet">
+
+<div class="topnav" id="myTopnav">
+  <a href="{% url 'home' %}"class="active"></i>Home</a>
+
+
+  {% if user.is_authenticated %}
+  <a  href="{% url 'allb' %}" >allblogs</a>
+        <a href="{% url 'create' %}">create</a>
+      
+
+        <a  href="JavaScript:{document.getElementById('logout').submit()}"></i>logout</a>
+        <form id="logout" method="POST" action="{% url 'logout'%}">
+
+
+          {%csrf_token%}
+        <input type="hidden"/>
+        {{y}}
+      </form>
+  {% else %}
+        <a href="{% url 'signup' %}"></i>signup</a>
+        <a  href="{% url 'login' %}"></i>login</a>
+  {% endif%}
+</div>
+
+
+</head>
+</html>

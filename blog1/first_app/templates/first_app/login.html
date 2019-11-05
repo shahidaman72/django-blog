@@ -1,0 +1,76 @@
+{% load staticfiles %}
+<! DOCTYPE html>
+<html>
+<head>
+  <title>login</title>
+
+{% include 'first_app\topnav.html' %}
+<style>
+  label{
+font-family: Arial, Helvetica, sans-serif;
+  }
+
+  input[type=checkbox]{  width:4%;
+    height: 4%;
+  }
+  button{
+    height: 8%;
+    width: 18%;
+    background-color:black;
+    color: white;
+    border-radius: 20px;
+  }
+input {
+  width:30%;
+  height: 2%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+  h1{font-family: system-ui;
+  color: #8c7ae6}
+  #ss{
+border-radius:50px;
+  }
+
+
+  </style>
+</head>
+</br></br></br></br>
+<body>
+<div  id="a">
+  <img src=" https://www.searchpng.com/wp-content/uploads/2019/07/User-Profule-Icon.jpg"height=100px width=100px id="ss">
+<h1>
+Login
+
+
+</h1>
+<p id="pp">{{error}}</p>
+<form  method="POST" action ="{% url 'login'  %}">
+  {%csrf_token%}
+
+  <label for="username"><b>Username</b></label></br>
+  <input type="text" placeholder="  Enter username" name="username" required>
+<br/><br/>
+  <label for="psw"><b>Password</b></label></br>
+  <input type="PASSWORD" placeholder="  Enter Password" name="psw" required>
+
+<br><br>
+  <button class"btn btn_primary"type="submit">Login</button>
+  <label><br>
+    <input type="checkbox" checked="checked" name="remember"> Remember me
+  </label>
+
+
+</form>
+</div>
+<br><br>
+<div class="footer">
+    {% include 'first_app\footer.html' %}
+</div>
+
+</body>
+</html>

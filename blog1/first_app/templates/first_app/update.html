@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<! DOCTYPE html>
+<html>
+<head>
+  <style media="screen">
+  body {
+    font-family: Arial;
+    padding: 0px;
+
+  }
+  </style>
+
+{% include 'first_app\topnav.html' %}
+<title>
+  update
+</title>
+</head>
+
+<body>
+  <div  id="a">
+
+<h1 id="h1">
+  upload your info
+</h1>
+
+<div class="container" id="1" >
+  <form method="POST" action ="{% url 'myprofile' %}" enctype="multipart/form-data" >
+    {%csrf_token%}
+    <label for="fname"><b>fname</b></label></BR>
+    <input type="text" placeholder="  Enter fname" name="fname" required></BR>
+    <label for="lname"><b>lname</b></label></BR>
+    <input type="text" placeholder="  Enter lname" name="lname" required></BR>
+    <label for="BIO"><b>BIO</b></label></BR>
+    <Textarea rows="6" cols="50" name="bio" placeholder="  Enter  SOMETEXT" ></textarea><br/>
+    <label for="propic"><b> UPLOAD PROFILE PIC</b></label></BR>
+    <input type="FILE" placeholder="choosefile" name="propic" required></BR>
+    <label for="male" form="form1">Male</label>
+    <input type="radio" name="gender" id="male" value="male"><br>
+   <label for="female">Female</label>
+   <input type="radio" name="gender" id="female" value="female"><br>
+   <label for="other">Other</label>
+   <input type="radio" name="gender" id="other" value="other"><br><br>
+  <br><br>
+      <button class"btn btn_primary"type="submit">UpLoad!</button>
+      <label for="follow"><b>Follow Me On:</b></label></BR>
+      <label for="instagram"><b>instagram</b></label></BR>
+      <input type="text" placeholder="  Enter insta link" name="instagram" required></BR>
+      <label for="facebook"><b>facebook</b></label></BR>
+      <input type="text" placeholder="  Enter facebook link" name="facebook" required></BR>
+      <label for="twitter"><b>facebook</b></label></BR>
+      <input type="text" placeholder="  Enter twitter link" name="twitter" required></BR>
+
+<br>
+</form>
+</div>
+</div>
+<div class="footer">
+    {% include 'first_app\footer.html' %}
+</div>
+</body>>
+
+</html>
