@@ -20,3 +20,4 @@ urlpatterns = [
     path('home/index/<int:Index_id>',views.detail1,name='detail1'),
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+  
